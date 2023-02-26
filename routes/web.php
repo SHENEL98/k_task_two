@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckBoxController;
+use App\Models\CheckBox;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,13 @@ use App\Http\Controllers\CheckBoxController;
 |
 */
 
-// Route::get('/', function () {return view('welcome'); }); 
+Route::get('/', function ()
+ {
+    $checkbox_lables = CheckBox::all();
+    return view('welcome')->with(['checkbox_lables'=>$checkbox_lables]); 
+}); 
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Auth::routes();
