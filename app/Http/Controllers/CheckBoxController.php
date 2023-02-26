@@ -103,7 +103,7 @@ class CheckBoxController extends Controller
     public function update_checkbox(Request $request)
     {
         // dd($request->all());
-        if($request->isChecked == true){
+        if($request->isChecked == "true"){
             $isChecked = 1;
         }else{
             $isChecked = 0;

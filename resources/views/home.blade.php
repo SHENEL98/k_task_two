@@ -22,7 +22,7 @@
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
-                        @endif 
+                        @endif
 
                     </div>
                     <div class="card-body">
@@ -63,7 +63,8 @@
                                 '"data-id="' + r[list].id + '" onclick="toggleCheckbox(this)" checked>  ' + r[
                                     list].lable + '</h4>';
 
-                            value += '<span class="badge badge-pill badge-info">Created By : ' + r[list].created_by +
+                            value += '<span class="badge badge-pill badge-info">Created By : ' + r[list]
+                                .created_by +
                                 '</span>';
 
                         } else {
@@ -71,14 +72,24 @@
                                 '"data-id="' + r[list].id + '" onclick="toggleCheckbox(this)">  ' + r[list]
                                 .lable + '</h4>';
 
-                            value += '<span class="badge badge-pill badge-info">Created By : ' + r[list].created_by +
+                            value += '<span class="badge badge-pill badge-info">Created By : ' + r[list]
+                                .created_by +
                                 '</span>';
 
                         }
-                        if(r[list].set_status_by != null){
-                        value += '<span class="badge badge-pill badge-success">Checked By : ' + r[list].set_status_by +
-                                '</span>';
+                        if (r[list].set_status_by != null) {
+                            if (r[list].status == 1) {
+                                value += '<span class="badge badge-pill badge-success">Checked By : ' + r[list]
+                                    .set_status_by +
+                                    '</span>';
+                            } else {
+                                value += '<span class="badge badge-pill badge-danger">Unchecked By : ' + r[list]
+                                    .set_status_by +
+                                    '</span>';
+                            }
+
                         }
+
                         value += '</li>';
                     }
                     $('#list_checkbox').html(value);
@@ -119,7 +130,6 @@
                 }
             });
         }
-
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 @endsection
