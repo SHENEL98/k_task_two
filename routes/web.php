@@ -14,21 +14,17 @@ use App\Http\Controllers\CheckBoxController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {return view('welcome'); }); 
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-// Route::resource('checkbox', CheckboxController::class);
-// ->middleware('auth');
-
-// Route::get('checkbox/create',[App\Http\Controllers\CheckboxController::class, 'create']);
-// Route::post('checkbox/store',[App\Http\Controllers\CheckboxController::class, 'store']);
-
+ 
 Route::group([ 'middleware' => 'auth'], function () {
     // Route::resource('checkbox', CheckboxController::class);
 
