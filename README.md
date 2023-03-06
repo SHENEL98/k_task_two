@@ -13,7 +13,7 @@ npm run dev
 php artisan serve
 
 
-#KELONY task two - System for storing the results of some checkboxes
+#task two - System for storing the results of some checkboxes
 
 There is a list of checkboxes, which can be checked or unchecked, at the end of this list the result of
 the checked checkboxes is shown. What should be done is to save these checkboxes checks (in a
